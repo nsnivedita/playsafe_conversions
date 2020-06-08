@@ -1,0 +1,99 @@
+openapi: 3.0.1
+info:
+  title: Conversion Service
+  description: "Convert Kelvin into Celsius, Celsius into kelvin, km into miles, miles\
+    \ into km"
+  termsOfService: "\"http://swagger.io/terms/\""
+  license:
+    name: Apache 4.0
+    url: "http://springdoc.org"
+  version: V1
+servers:
+- url: "http://localhost:3200"
+  description: Generated server url
+paths:
+  /conversion/mtok/{miles}:
+    get:
+      tags:
+      - Conversion System
+      description: Convert miles passed as path parameter into Kilo meter
+      operationId: convertIntoKiloMeter
+      parameters:
+      - name: miles
+        in: path
+        required: true
+        schema:
+          type: number
+          format: double
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: number
+                format: double
+  /conversion/ktom/{km}:
+    get:
+      tags:
+      - Conversion System
+      description: 'Convert Kilo meter passed as path parameter into miles '
+      operationId: convertIntoMiles
+      parameters:
+      - name: km
+        in: path
+        required: true
+        schema:
+          type: number
+          format: double
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: number
+                format: double
+  /conversion/ktoc/{kelvin}:
+    get:
+      tags:
+      - Conversion System
+      description: Convert Kelvin passed as path parameter into Celsius
+      operationId: convertIntoCelsius
+      parameters:
+      - name: kelvin
+        in: path
+        required: true
+        schema:
+          type: number
+          format: double
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: number
+                format: double
+  /conversion/ctok/{celsius}:
+    get:
+      tags:
+      - Conversion System
+      description: Convert Celsius passed as path parameter into Kelvin
+      operationId: convertIntoKelvin
+      parameters:
+      - name: celsius
+        in: path
+        required: true
+        schema:
+          type: number
+          format: double
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: number
+                format: double
+components: {}
